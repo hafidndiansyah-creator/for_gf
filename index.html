@@ -1,65 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Best Girlfriend 💗</title>
+<title>For Nata 💗</title>
 
 <style>
 body{
-    margin:0;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#ffd6e7,#fff0f6);
-    font-family: "Comic Sans MS", cursive;
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#f7c9d7,#f3d9e2);
+font-family:'Segoe UI',cursive;
+overflow:hidden;
 }
 
+/* kartu tengah */
 .card{
-    width:650px;
-    padding:40px;
-    background:#fff;
-    border-radius:25px;
-    text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+width:650px;
+padding:40px;
+background:white;
+border-radius:20px;
+text-align:center;
+box-shadow:0 15px 35px rgba(0,0,0,0.15);
 }
 
 .title{
-    font-size:30px;
-    font-weight:bold;
+font-size:28px;
 }
 
 .big{
-    font-size:45px;
-    margin:15px 0;
+font-size:40px;
+font-weight:bold;
+margin:10px 0;
 }
 
 .name{
-    font-size:35px;
-    color:#ff4f81;
-    font-weight:bold;
+font-size:32px;
+color:#ff4f81;
+font-weight:bold;
 }
 
 .text{
-    margin-top:15px;
-    font-size:18px;
+font-size:17px;
+color:#444;
+margin-top:10px;
 }
 
-.badge{
-    font-size:60px;
-    margin-top:20px;
+/* dekorasi gambar pojok */
+.corner{
+position:absolute;
+width:120px;
 }
 
-img{
-    width:100px;
-    position:absolute;
+.tl{top:10px;left:10px;}
+.tr{top:10px;right:10px;}
+.bl{bottom:10px;left:10px;}
+.br{bottom:10px;right:10px;}
+
+/* animasi hati */
+.heart{
+position:absolute;
+color:#ff4f81;
+animation:fall 6s linear infinite;
 }
 
-.tl{top:30px; left:30px;}
-.tr{top:30px; right:30px;}
-.bl{bottom:30px; left:30px;}
-.br{bottom:30px; right:30px;}
+@keyframes fall{
+0%{transform:translateY(-10vh);}
+100%{transform:translateY(110vh);}
+}
+
+/* tombol play */
+.playbtn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#ff4f81;
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:20px;
+cursor:pointer;
+font-size:14px;
+}
 </style>
+</head>
+
+<body>
+
+<!-- gambar dekor (boleh ganti link pinterest) -->
+<img src="https://i.pinimg.com/736x/52/5b/64/525b64a0c54dfb6c72b4f7b40d0b7d6c.jpg" class="corner tl">
+<img src="https://i.pinimg.com/736x/8d/0f/58/8d0f58e3a8a1f3e0c77c2fd2a2df61f3.jpg" class="corner tr">
+<img src="https://i.pinimg.com/736x/2e/40/4c/2e404c7c87e8c746ccece7a4e88bce1c.jpg" class="corner bl">
+<img src="https://i.pinimg.com/736x/44/9c/5a/449c5a0c9d7e6c2e3d2e9f3e6a9f3f6b.jpg" class="corner br">
+
+<div class="card">
+
+<div class="title">THIS</div>
+<div class="big">BEST GIRLFRIEND</div>
+
+<p>has been presented to :</p>
+
+<div class="name">NATAAA</div>
+
+<hr>
+
+<p class="text">
+for being a good person 💗
+</p>
+
+<p class="text">
+i hope you always feel loved and happy with me
+</p>
+
+<div style="font-size:60px;">🏅</div>
+
+</div>
+
+<audio id="music" loop>
+<source src="nothing.mp3" type="audio/mpeg">
+</audio>
+
+<button class="playbtn" onclick="playMusic()">play music 🎵</button>
+
+<script>
+let audio=document.getElementById("music");
+
+function playMusic(){
+audio.volume=0.7;
+audio.play();
+}
+
+/* coba autoplay */
+window.addEventListener("load",()=>{
+audio.play().catch(()=>{
+document.body.addEventListener("click",()=>{
+audio.play();
+},{once:true});
+});
+});
+
+/* animasi hati jatuh */
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="💗";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(20+Math.random()*30)+"px";
+document.body.appendChild(heart);
+
+setTimeout(()=>{heart.remove();},6000);
+},400);
+</script>
+
+</body>
+</html></style>
 
 </head>
 
